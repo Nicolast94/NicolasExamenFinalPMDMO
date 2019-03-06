@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<CheckBoxPreference
+    android:key="snack_pref"
+    android:title="Mostrar aviso de borrado"
+    android:defaultValue="true" />
+
+<SwitchPreference
+    android:key="dialog_pref"
+    android:title="Mostrar ventana de confirmación"
+    android:defaultValue="true" />
+
+</PreferenceScreen>

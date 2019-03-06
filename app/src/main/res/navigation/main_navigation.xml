@@ -13,10 +13,17 @@
         <action
             android:id="@+id/actionListaToAgregar"
             app:destination="@id/destAgregarFragment" />
+        <action
+            android:id="@+id/actionListaToSettings"
+            app:destination="@id/destSettingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/destAgregarFragment"
         android:name="es.iessaldillo.nicol.nicolasexamenfinalpmdmo.ui.fragmentos.agregarFragment.AgregarFragment"
         android:label="Agregar Libro"
         tools:layout="@layout/agregar_fragment" />
+    <fragment
+        android:id="@+id/destSettingsFragment"
+        android:name="es.iessaldillo.nicol.nicolasexamenfinalpmdmo.ui.fragmentos.settings.SettingsFragment"
+        android:label="Preferencias" />
 </navigation>

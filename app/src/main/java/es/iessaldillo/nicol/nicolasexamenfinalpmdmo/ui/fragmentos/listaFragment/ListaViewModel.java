@@ -29,6 +29,11 @@ public class ListaViewModel extends ViewModel {
         selectedLibro = repository.consultarLibro(idLibro);
     }
 
+    public void insertLibro(Libro libro){
+        repository.insertLibro(libro);
+    }
+
+
     public void consultarSinopsis(long idLibro){
         libroSinopsis = repository.consultarSinopsisLibro(idLibro);
     }
@@ -59,5 +64,13 @@ public class ListaViewModel extends ViewModel {
 
     public void setLibroSinopsis(LiveData<String> libroSinopsis) {
         this.libroSinopsis = libroSinopsis;
+    }
+
+    public Libro getLibroBorrado() {
+        return libroBorrado;
+    }
+
+    public void setLibroBorrado(Libro libroBorrado) {
+        this.libroBorrado = libroBorrado;
     }
 }

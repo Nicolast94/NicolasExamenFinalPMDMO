@@ -12,15 +12,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -62,6 +65,14 @@ public class ListaFragment extends Fragment {
         inflater.inflate(R.menu.list_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.mnuToSettings) {
+            NavHostFragment.findNavController(this).navigate(R.id.actionListaToSettings);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void setupViews() {
         FloatingActionButton fab = ActivityCompat.requireViewById(requireActivity(), R.id.fabCrearLibro);
@@ -98,7 +109,13 @@ public class ListaFragment extends Fragment {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                vm.setLibroBorrado(listaAdapter.getItem(viewHolder.getAdapterPosition()));
                 vm.deleteLibro(listaAdapter.getItem(viewHolder.getAdapterPosition()));
+                Snackbar.make(lblEmptyView, vm.getLibroBorrado().getTitulo() + " ha sido borrado", Snackbar.LENGTH_LONG)
+                        .setAction("Deshacer", view -> {
+                            vm.insertLibro(vm.getLibroBorrado());
+                            vm.consultarCadaLibro();
+                        }).show();
             }
         });
 
