@@ -6,4 +6,5 @@
     <string name="tilHintFecha">Año de publicación</string>
     <string name="tilHintURL">URL Portada</string>
     <string name="tilSinopsis">Sinopsis</string>
+    <string name="mnuItem1_Title">Settings</string>
 </resources>

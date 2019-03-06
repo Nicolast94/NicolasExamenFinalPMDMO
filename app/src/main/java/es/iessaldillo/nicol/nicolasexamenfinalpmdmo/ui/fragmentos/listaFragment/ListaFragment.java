@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -51,6 +53,14 @@ public class ListaFragment extends Fragment {
         repository = new RepositoryImpl(estudianteDao);
         vm = ViewModelProviders.of(this, new ListaViewModelFactory(repository)).get(ListaViewModel.class);
         setupViews();
+        setHasOptionsMenu(true);
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.list_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     private void setupViews() {
@@ -61,7 +71,6 @@ public class ListaFragment extends Fragment {
         fab.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.actionListaToAgregar));
         setupRecyclerView();
 
-        vm.insertLibro(new Libro(0,"Juego de Traperos","Pepe","09/19/4849","","Bla bla"));
         vm.getLibroList().observe(this, this::actualizarListaEmpresas);
 
     }

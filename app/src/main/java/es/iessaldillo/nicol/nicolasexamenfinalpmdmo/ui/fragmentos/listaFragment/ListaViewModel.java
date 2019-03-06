@@ -33,10 +33,6 @@ public class ListaViewModel extends ViewModel {
         libroSinopsis = repository.consultarSinopsisLibro(idLibro);
     }
 
-    public void insertLibro(Libro libro){
-        repository.insertLibro(libro);
-    }
-
     public void deleteLibro(Libro libro){
         repository.deleteLibro(libro);
     }
