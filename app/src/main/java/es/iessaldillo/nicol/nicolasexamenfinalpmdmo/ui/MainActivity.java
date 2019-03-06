@@ -1,6 +1,7 @@
-package es.iessaldillo.nicol.nicolasexamenfinalpmdmo;
+package es.iessaldillo.nicol.nicolasexamenfinalpmdmo.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import es.iessaldillo.nicol.nicolasexamenfinalpmdmo.R;
 
 import android.os.Bundle;
 

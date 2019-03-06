@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/destListaFragment">
 
+    <fragment
+        android:id="@+id/destListaFragment"
+        android:name="es.iessaldillo.nicol.nicolasexamenfinalpmdmo.ui.fragmentos.listaFragment.ListaFragment"
+        android:label="Lista"
+        tools:layout="@layout/lista_fragment">
+        <action
+            android:id="@+id/actionListaToAgregar"
+            app:destination="@id/destAgregarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/destAgregarFragment"
+        android:name="es.iessaldillo.nicol.nicolasexamenfinalpmdmo.ui.fragmentos.agregarFragment.AgregarFragment"
+        android:label="Agregar Libro"
+        tools:layout="@layout/agregar_fragment" />
 </navigation>
